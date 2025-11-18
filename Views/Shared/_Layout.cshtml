@@ -7,69 +7,81 @@
     
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Dashboard" asp-action="Index">Thoth</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Capacitaciones" asp-action="Index">Capacitaciones</a>
-                            </li>
-                        </ul>
-                    }
-
-                    <ul class="navbar-nav">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <span class="nav-link text-dark">Hola, @User.Identity.Name!</span>
-                            </li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
-                                    <button type="submit" class="nav-link btn btn-link text-dark">Cerrar Sesión</button>
-                                </form>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Registro">Registro</a>
-                            </li>
-                        }
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-    </header>
     
-    <div class="container">
-        <main role="main" class="pb-3">
+    </head>
+<body>
+    
+    <div class="sidebar">
+        
+        <a class="sidebar-brand" asp-controller="Dashboard" asp-action="Index">
+            <img src="~/images/thoth-logo.png" alt="Thoth Icon Logo" class="thoth-icon-logo" /> 
+            <span class="thoth-text-logo">THOTH</span> 
+        </a>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                    <a class="sidebar-nav-link" asp-controller="Dashboard" asp-action="Index">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a class="sidebar-nav-link" asp-controller="Capacitaciones" asp-action="Index">
+                        Capacitaciones
+                    </a>
+                </li>
+                
+                @if (User.IsInRole("Administrador"))
+                {
+                    <li class="sidebar-nav-item">
+                        <a class="sidebar-nav-link" asp-controller="Usuario" asp-action="Index">
+                           Gestionar Usuarios
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+        </div>
+
+    <header class="topbar">
+        
+        <ul class="navbar-nav">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <span class="nav-link">Hola, @User.Identity.Name!</span>
+                </li>
+                <li class="nav-item">
+                    <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                        <button type="submit" class="nav-link btn btn-link">Cerrar Sesión</button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Registro">Registro</a>
+                </li>
+            }
+        </ul>
+
+    </header>
+
+    <div class="main-content">
+        <main role="main">
             @RenderBody()
         </main>
+        
+        <footer class="footer">
+            &copy; 2025 - Thoth - Sistema de Capacitación y EPP
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Thoth - Sistema de Capacitación
-        </div>
-    </footer>
-    
+
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

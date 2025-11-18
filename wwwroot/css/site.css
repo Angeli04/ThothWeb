@@ -1,31 +1,197 @@
-html {
-  font-size: 14px;
+/* ---------------------------------
+   1. VARIABLES DE COLOR (PALETA THOTH)
+   --------------------------------- */
+:root {
+  --th-primary: #e60026; /* Rojo Principal */
+  --th-primary-dark: #b00020; /* Rojo Oscuro (Fondo Sidebar) */
+  --th-neutral: #a5a5a5; /* Gris Neutro */
+  --th-success: #4caf50; /* Verde Éxito */
+  --th-warning: #ffc107; /* Amarillo Advertencia */
+  --th-white: #ffffff; /* Blanco */
+  --th-bg: #f4f7f6; /* Fondo de contenido (Gris claro) */
+  --th-text: #333333; /* Texto oscuro principal */
+  --th-text-light: #f8f9fa; /* Texto claro (para sidebar) */
+
+  --sidebar-width: 260px; /* Variable para el ancho del sidebar */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
+/* ---------------------------------
+   2. RESET Y GLOBALES
+   --------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+  background-color: var(--th-bg); /* Fondo gris claro para todo */
+  color: var(--th-text);
+  margin-left: var(--sidebar-width); /* Deja espacio para el sidebar fijo */
+  padding-top: 60px; /* Deja espacio para el topbar fijo */
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* ---------------------------------
+   3. ESTRUCTURA LAYOUT (SIDEBAR + TOPBAR)
+   --------------------------------- */
+
+/* --- A. SIDEBAR (Navegación Principal) --- */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  left: 0;
+  background-color: var(--th-primary-dark);
+  color: var(--th-text-light);
+  padding-top: 1.5rem;
+  z-index: 1030; /* Encima de otros elementos */
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* --- B. TOPBAR (Barra de Usuario) --- */
+.topbar {
+  height: 60px;
+  width: calc(100% - var(--sidebar-width)); /* Ancho restante */
+  position: fixed; /* Fijo en la parte superior */
+  top: 0;
+  right: 0; /* Alineado a la derecha */
+  background-color: var(--th-white);
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea items al final (derecha) */
+  padding: 0 2rem;
+  z-index: 1020;
+}
+
+/* --- C. ÁREA DE CONTENIDO PRINCIPAL --- */
+.main-content {
+  padding: 2rem;
+}
+
+/* ---------------------------------
+   4. ESTILOS DE COMPONENTES
+   --------------------------------- */
+
+/* --- Logo en Sidebar --- */
+.sidebar-brand {
+  display: flex;
+  flex-direction: column; /* <-- ESTO HACE QUE SE APILEN VERTICALMENTE */
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem; /* Más padding vertical */
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+.sidebar-brand .thoth-icon-logo {
+  height: 90px;
+  width: 90px;
+  background-color: var(--th-white);
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sidebar-brand .thoth-text-logo {
+  color: var(--th-white);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.sidebar-brand img {
+  height: 90px; /* Ajusta el tamaño de tu logo */
+  margin-right: 90px;
+}
+.sidebar-brand span {
+  color: var(--th-white);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* --- Enlaces del Sidebar --- */
+.sidebar-nav {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar-nav-item {
+  width: 100%;
+}
+.sidebar-nav-link {
+  display: block;
+  padding: 0.75rem 2rem;
+  color: var(--th-neutral); /* Gris neutro para links inactivos */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.sidebar-nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--th-white);
+}
+/* Estilo para el link ACTIVO (requiere JS o Tag Helpers de ASP.NET) */
+.sidebar-nav-link.active {
+  background-color: var(--th-primary);
+  color: var(--th-white);
+  font-weight: 600;
+}
+
+/* --- Items del Topbar (Saludo y Logout) --- */
+.topbar .navbar-nav {
+  flex-direction: row; /* Los pone horizontal */
+}
+.topbar .nav-item {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+}
+.topbar .nav-link {
+  color: var(--th-text);
+}
+.topbar .btn-link {
+  color: var(--th-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .btn-link:hover {
+  color: var(--th-primary-dark);
+}
+
+/* ---------------------------------
+   5. BOTONES Y OTROS (de la paleta)
+   --------------------------------- */
+.btn-primary {
+  background-color: var(--th-primary);
+  border-color: var(--th-primary);
+}
+.btn-primary:hover {
+  background-color: var(--th-primary-dark);
+  border-color: var(--th-primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--th-neutral);
+  border-color: var(--th-neutral);
+  color: var(--th-white);
+}
+.btn-secondary:hover {
+  background-color: #8a8a8a;
+  border-color: #8a8a8a;
+  color: var(--th-white);
+}
+
+a {
+  color: var(--th-primary);
+}
+
+/* --- Footer --- */
+.footer {
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  background-color: var(--th-white);
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+  color: var(--th-neutral);
 }

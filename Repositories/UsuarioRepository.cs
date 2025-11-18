@@ -16,25 +16,15 @@ namespace Thoth.Web.Repositories
         }
         public async Task<Usuario> CreateUserAsync(Usuario usuario, string password)
         {
-            // --- A. Validar que el email no exista ---
             if (await _context.Usuarios.IgnoreQueryFilters().AnyAsync(u => u.Email == usuario.Email))
             {
                 throw new System.Exception("El email ya está registrado.");
             }
 
-            // --- B. Hashear el password ---
-            // Nunca se guarda la contraseña en texto plano
             usuario.PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
-
-            // --- C. Guardar en la BD ---
-            // 1. Agregar el usuario al "área de espera" de EF Core
             await _context.Usuarios.AddAsync(usuario);
-            
-            // 2. Ejecutar el "INSERT" en la base de datos
             await _context.SaveChangesAsync();
-
-            // 3. Devolver el objeto Usuario (que ahora ya tiene su Id)
             return usuario;
         }
 
@@ -83,5 +73,50 @@ namespace Thoth.Web.Repositories
         await _context.SaveChangesAsync();
         return true;
         }
+
+        public async Task<IEnumerable<Usuario>> GetAllUsersAsync()
+        {
+            return await _context.Usuarios.IgnoreQueryFilters()
+                .Include(u => u.Rol)
+                .ToListAsync();
+        }
+
+        public async Task<Usuario> GetUserByIdAsync(int id)
+        {
+            if (id == 0)
+            {
+                return null;
+            }else{
+            return await _context.Usuarios
+                        .Include(u => u.Rol)
+                        .IgnoreQueryFilters()
+                        .FirstOrDefaultAsync(u => u.Id == id);
+            }
+        }
+
+        public async Task<bool> ActivateUserAsync(int id)
+        {
+            var usuario = await _context.Usuarios.IgnoreQueryFilters().FirstOrDefaultAsync(u => u.Id == id);
+
+            if (usuario == null)
+            {
+                return false;
+            }
+
+            usuario.EstaActivo = true;
+
+            await _context.SaveChangesAsync();
+            return true;
+
+        }
+
+        public async Task UpdateUserAsync(Usuario usuario)
+        {
+            _context.Usuarios.Update(usuario);
+            await _context.SaveChangesAsync();
+        }
+
+        
+
     }
 }

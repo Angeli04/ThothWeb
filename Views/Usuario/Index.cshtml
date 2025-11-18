@@ -1,0 +1,62 @@
+@model IEnumerable<Thoth.Web.Models.Usuario>
+@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Usuario</a>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Estado</th> <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr class="@(usuario.EstaActivo ? "" : "table-secondary text-muted")">
+                
+                <td>@usuario.Nombre @usuario.Apellido</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.Rol.Nombre</td>
+                
+                <td>
+                    @if (usuario.EstaActivo)
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Inactivo</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning">Editar</a> |
+                    
+                    @if (usuario.EstaActivo)
+                    {
+                        <form asp-action="SoftDelete" asp-route-id="@usuario.Id" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-danger">Desactivar</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="Activate" asp-route-id="@usuario.Id" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-success">Activar</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

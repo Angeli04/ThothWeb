@@ -10,5 +10,14 @@ namespace Thoth.Web.Repositories
         Task<Usuario> ValidateUserAsync(string email, string password);
     
         Task<bool> SoftDeleteUserAsync(int id);
+
+        Task<IEnumerable<Usuario>> GetAllUsersAsync();
+
+        Task<Usuario> GetUserByIdAsync(int id);
+
+        Task<bool> ActivateUserAsync(int id);
+        
+        Task UpdateUserAsync(Usuario usuario);
+    
     }
 }
