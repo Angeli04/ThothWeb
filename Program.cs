@@ -1,39 +1,50 @@
-// --- Imports necesarios para la base de datos ---
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-using Thoth.Web.Data; // Asegúrate que este sea el namespace de tu DbContext
-// --- Fin de Imports ---
+using Thoth.Web.Data;
+using Thoth.Web.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- INICIO: Configuración del DbContext ---
-
-// 1. Obtener la cadena de conexión de appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// 2. Configurar el DbContext para usar MySQL
+
 builder.Services.AddDbContext<ThothDbContext>(options =>
 {
-    // 3. Usar el proveedor de Pomelo para MySQL
+
     options.UseMySql(connectionString, 
-        ServerVersion.AutoDetect(connectionString), // Detecta la versión de tu servidor MySQL
-        mySqlOptions => mySqlOptions.EnableRetryOnFailure() // Opcional: bueno para reintentar conexiones fallidas
+        ServerVersion.AutoDetect(connectionString), 
+        mySqlOptions => mySqlOptions.EnableRetryOnFailure() 
     );
 });
 
-// --- FIN: Configuración del DbContext ---
+
+builder.Services.AddControllersWithViews(); 
 
 
-// Add services to the container.
-builder.Services.AddControllersWithViews(); // Esto ya debería estar
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        // 2. Definir la página de Login
+        // Si un usuario NO autenticado intenta entrar a una página [Authorize],
+        // será redirigido aquí:
+        options.LoginPath = "/Account/Login";
+        
+        // 3. (Opcional) Tiempo de expiración de la cookie
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); 
+        
+        // 4. (Opcional) Permitir que la cookie se refresque
+        options.SlidingExpiration = true; 
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -42,10 +53,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // <-- ¿Quién eres?
+app.UseAuthorization();  // <-- ¿Tienes permiso?
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 app.Run();

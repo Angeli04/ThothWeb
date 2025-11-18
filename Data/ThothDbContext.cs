@@ -26,6 +26,8 @@ namespace Thoth.Web.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Usuario>().HasQueryFilter(u => u.EstaActivo);
+
             // --- Configuración de Usuario ---
             modelBuilder.Entity<Usuario>(entity =>
             {

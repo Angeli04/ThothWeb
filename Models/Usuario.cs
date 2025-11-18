@@ -12,6 +12,10 @@ namespace Thoth.Web.Models
         public string PasswordHash { get; set; }
         public string Avatar { get; set; }
 
+        public bool EstaActivo { get; set; } = true;
+
+
+
         // --- Relaciones ---
 
         // 1. Relación con Rol (Muchos a Uno)
