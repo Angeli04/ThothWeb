@@ -25,6 +25,7 @@ C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ThothWeb.
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\scopedcss\bundle\ThothWeb.styles.css
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\scopedcss\projectbundle\ThothWeb.bundle.scp.css
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\compressed\h75yfoqgvs-49fg0ixyei.gz
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\compressed\eeug1fo22b-61n19gt1b8.gz
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\compressed\oxdyffu6ro-xtxxf3hu2r.gz
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\compressed\jnxadhff57-bqjiyaj88i.gz
@@ -103,4 +104,3 @@ C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\refint\Th
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ThothWeb.pdb
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ThothWeb.genruntimeconfig.cache
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ref\ThothWeb.dll
-C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\compressed\h75yfoqgvs-49fg0ixyei.gz

@@ -24,6 +24,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IRolRepository, RolRepository>();
+builder.Services.AddScoped<ICapacitacionRepository, CapacitacionRepository>();
+builder.Services.AddScoped<IEvaluacionRepository, EvaluacionRepository>();
+builder.Services.AddScoped<IInscripcionRepository, InscripcionRepository>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

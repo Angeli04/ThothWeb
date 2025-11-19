@@ -28,8 +28,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Capacitaciones/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FwYWNpdGFjaW9uZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Capacitaciones/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FwYWNpdGFjaW9uZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Capacitaciones/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FwYWNpdGFjaW9uZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Capacitaciones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FwYWNpdGFjaW9uZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Evaluaciones/AgregarPregunta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhY2lvbmVzXEFncmVnYXJQcmVndW50YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Evaluaciones/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhY2lvbmVzXENyZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Inscripciones/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zY3JpcGNpb25lc1xDcmVhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ismit/OneDrive/Escritorio/Proyectos/ThothWeb/Views/Shared/Error.cshtml]

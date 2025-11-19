@@ -1,0 +1,137 @@
+@model Thoth.Web.Models.ViewModels.PreguntaCrearViewModel
+
+@{
+    ViewData["Title"] = "Agregar Pregunta";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-dark fw-bold mb-0">Diseñador de Evaluación</h2>
+            <p class="text-muted small mb-0">Agrega una nueva pregunta al banco de este examen.</p>
+        </div>
+        <a href="javascript:history.back()" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver al Detalle
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary bg-opacity-10 border-bottom py-3">
+                    <h5 class="mb-0 fw-bold text-primary">
+                        <i class="bi bi-question-diamond-fill me-2"></i>Nueva Pregunta
+                    </h5>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form asp-action="AgregarPregunta">
+                        <input type="hidden" asp-for="EvaluacionId" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-floating mb-4">
+                            <textarea asp-for="Enunciado" class="form-control fs-5" placeholder="Pregunta" style="height: 100px"></textarea>
+                            <label asp-for="Enunciado" class="fw-bold">Escribe el enunciado de la pregunta aquí</label>
+                            <span asp-validation-for="Enunciado" class="text-danger small"></span>
+                        </div>
+
+                        <div class="bg-light p-4 rounded border">
+                            <h6 class="text-muted fw-bold text-uppercase small mb-3">
+                                <i class="bi bi-list-check me-1"></i> Configura las Opciones
+                            </h6>
+                            
+                            <div class="alert alert-info py-2 small mb-3">
+                                <i class="bi bi-info-circle-fill me-1"></i>
+                                Debes escribir la opción y <strong>marcar el círculo</strong> de la que sea correcta.
+                            </div>
+
+                            <div class="row g-2 align-items-center mb-3">
+                                <div class="col-auto">
+                                    <div class="form-check d-flex align-items-center justify-content-center" style="width: 40px;">
+                                        <input type="radio" asp-for="RespuestaCorrectaIndex" value="0" class="form-check-input fs-4" required title="Marcar como correcta" style="cursor: pointer;" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text fw-bold bg-white text-secondary">A</span>
+                                        <input asp-for="Opcion1" class="form-control" placeholder="Respuesta de la Opción A" />
+                                    </div>
+                                    <span asp-validation-for="Opcion1" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <div class="row g-2 align-items-center mb-3">
+                                <div class="col-auto">
+                                    <div class="form-check d-flex align-items-center justify-content-center" style="width: 40px;">
+                                        <input type="radio" asp-for="RespuestaCorrectaIndex" value="1" class="form-check-input fs-4" title="Marcar como correcta" style="cursor: pointer;" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text fw-bold bg-white text-secondary">B</span>
+                                        <input asp-for="Opcion2" class="form-control" placeholder="Respuesta de la Opción B" />
+                                    </div>
+                                    <span asp-validation-for="Opcion2" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <div class="row g-2 align-items-center">
+                                <div class="col-auto">
+                                    <div class="form-check d-flex align-items-center justify-content-center" style="width: 40px;">
+                                        <input type="radio" asp-for="RespuestaCorrectaIndex" value="2" class="form-check-input fs-4" title="Marcar como correcta" style="cursor: pointer;" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text fw-bold bg-white text-secondary">C</span>
+                                        <input asp-for="Opcion3" class="form-control" placeholder="Respuesta de la Opción C (Opcional)" />
+                                    </div>
+                                    <div class="form-text small ms-1">Deja esto vacío si es Verdadero/Falso.</div>
+                                    <span asp-validation-for="Opcion3" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <button type="submit" class="btn btn-success px-4 py-2 fw-bold shadow-sm">
+                                <i class="bi bi-plus-circle-dotted me-2"></i> Guardar y Agregar Otra
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-none d-lg-block">
+            <div class="card border-0 bg-light mb-3">
+                <div class="card-body">
+                    <h6 class="fw-bold small text-uppercase text-muted"><i class="bi bi-lightbulb-fill text-warning me-1"></i> Tips de Redacción</h6>
+                    <ul class="small text-muted ps-3 mb-0">
+                        <li class="mb-2">Mantén el enunciado claro y directo.</li>
+                        <li class="mb-2">Las respuestas incorrectas ("distractores") deben parecer plausibles.</li>
+                        <li>Evita usar "Todas las anteriores" si es posible, ya que confunde la medición.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 opacity-75">
+                <div class="card-header bg-white py-2 border-bottom-0">
+                    <small class="fw-bold text-muted">Así lo verá el alumno:</small>
+                </div>
+                <div class="card-body pt-0 pb-3">
+                    <p class="fw-bold mb-2 small">¿Cuál es el elemento...?</p>
+                    <div class="border rounded p-2 mb-1 bg-white small">Opción A...</div>
+                    <div class="border rounded p-2 mb-1 bg-white small">Opción B...</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

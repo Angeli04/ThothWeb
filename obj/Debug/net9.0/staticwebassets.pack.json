@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\ismit\\OneDrive\\Escritorio\\Proyectos\\ThothWeb\\wwwroot\\images\\thoth-logo-completo.png",
+      "PackagePath": "staticwebassets\\images\\thoth-logo-completo.png"
+    },
+    {
       "Id": "C:\\Users\\ismit\\OneDrive\\Escritorio\\Proyectos\\ThothWeb\\wwwroot\\images\\thoth-logo.png",
       "PackagePath": "staticwebassets\\images\\thoth-logo.png"
     },
@@ -259,6 +263,14 @@
     {
       "Id": "C:\\Users\\ismit\\OneDrive\\Escritorio\\Proyectos\\ThothWeb\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\ismit\\OneDrive\\Escritorio\\Proyectos\\ThothWeb\\wwwroot\\uploads\\90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "PackagePath": "staticwebassets\\uploads\\90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ismit\\OneDrive\\Escritorio\\Proyectos\\ThothWeb\\wwwroot\\uploads\\edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "PackagePath": "staticwebassets\\uploads\\edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ThothWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

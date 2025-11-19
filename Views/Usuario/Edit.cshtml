@@ -1,54 +1,127 @@
 @model Thoth.Web.Models.ViewModels.UsuarioEditarViewModel
+
 @{
     ViewData["Title"] = "Editar Usuario";
     var listaRoles = ViewData["Roles"] as IEnumerable<SelectListItem>;
 }
 
-<h2>@ViewData["Title"]</h2>
-<hr />
+<div class="container-fluid">
 
-<div class="row">
-    <div class="col-md-6">
-        <form asp-controller="Usuario" asp-action="Edit" method="post">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-dark fw-bold mb-0">Editar Colaborador</h2>
+            <p class="text-muted small mb-0">Actualiza la información personal o los permisos de acceso.</p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning bg-opacity-10 border-bottom py-3">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-pencil-square me-2"></i>Datos del Usuario
+                    </h5>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-controller="Usuario" asp-action="Edit" method="post">
+                        
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+                        
+                        <input type="hidden" asp-for="Id" />
+
+                        <h6 class="text-uppercase text-muted small fw-bold mb-3">Información Personal</h6>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Nombre" class="form-control" placeholder="Nombre" />
+                                    <label asp-for="Nombre">Nombre</label>
+                                    <span asp-validation-for="Nombre" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Apellido" class="form-control" placeholder="Apellido" />
+                                    <label asp-for="Apellido">Apellido</label>
+                                    <span asp-validation-for="Apellido" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="Rut" class="form-control" placeholder="RUT" />
+                            <label asp-for="Rut">RUT / Identificación</label>
+                            <span asp-validation-for="Rut" class="text-danger small"></span>
+                        </div>
+
+                        <hr class="text-muted my-4" />
+
+                        <h6 class="text-uppercase text-muted small fw-bold mb-3">Cuenta y Permisos</h6>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                    <label asp-for="Email">Correo Electrónico</label>
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select asp-for="RolId" class="form-select" asp-items="@listaRoles">
+                                        <option value="">-- Seleccionar Rol --</option>
+                                    </select>
+                                    <label asp-for="RolId">Rol Asignado</label>
+                                    <span asp-validation-for="RolId" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-action="Index" class="btn btn-light text-muted">Cancelar</a>
+                            <button type="submit" class="btn btn-primary px-4 fw-bold">
+                                <i class="bi bi-check-circle-fill me-2"></i> Guardar Cambios
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-none d-lg-block">
             
-            <div asp-validation-summary="All" class="text-danger"></div>
-
-            <input type="hidden" asp-for="Id" />
-
-            <div class="mb-3">
-                <label asp-for="Nombre" class="form-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+            <div class="alert alert-light border shadow-sm mb-3">
+                <h6 class="fw-bold text-dark"><i class="bi bi-key-fill me-2"></i>¿Contraseña?</h6>
+                <p class="small text-muted mb-0">
+                    Por seguridad, la contraseña no se edita en esta pantalla.
+                </p>
+                <hr class="my-2">
+                <p class="small text-muted mb-0">
+                    Si el usuario olvidó su clave, debe usar la opción <strong>"¿Olvidaste tu contraseña?"</strong> en la pantalla de Login.
+                </p>
             </div>
 
-            <div class="mb-3">
-                <label asp-for="Apellido" class="form-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
+            <div class="card border-0 bg-light">
+                <div class="card-body">
+                    <h6 class="fw-bold small text-uppercase text-muted mb-2">Impacto del Cambio</h6>
+                    <p class="small mb-0">
+                        Si cambias el <strong>Rol</strong> de un usuario, sus permisos se actualizarán la próxima vez que inicie sesión en el sistema.
+                    </p>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label asp-for="Rut" class="form-label"></label>
-                <input asp-for="Rut" class="form-control" />
-                <span asp-validation-for="Rut" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="RolId" class="form-label">Rol</label>
-                <select asp-for="RolId" class="form-select" asp-items="@listaRoles">
-                    <option value="">-- Seleccionar un Rol --</option>
-                </select>
-                <span asp-validation-for="RolId" class="text-danger"></span>
-            </div>
-
-            <button type="submit" class="btn btn-warning">Guardar Cambios</button>
-            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-        </form>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

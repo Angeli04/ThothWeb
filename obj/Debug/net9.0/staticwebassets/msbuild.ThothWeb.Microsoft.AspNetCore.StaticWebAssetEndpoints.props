@@ -24,6 +24,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5430"},{"Name":"Content-Type","Value":"image/x-icon"},{"Name":"ETag","Value":"\u0022Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Nov 2025 22:34:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ThothWeb/images/thoth-logo-completo.idik78psvm.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\thoth-logo-completo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"idik78psvm"},{"Name":"integrity","Value":"sha256-\u002Bk4KQlndHc72u\u002B0CQ2nPfpthiTadT06P\u002BU/1bvVnXk8="},{"Name":"label","Value":"_content/ThothWeb/images/thoth-logo-completo.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"66670"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002Bk4KQlndHc72u\u002B0CQ2nPfpthiTadT06P\u002BU/1bvVnXk8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 04:11:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ThothWeb/images/thoth-logo-completo.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\thoth-logo-completo.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002Bk4KQlndHc72u\u002B0CQ2nPfpthiTadT06P\u002BU/1bvVnXk8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"66670"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002Bk4KQlndHc72u\u002B0CQ2nPfpthiTadT06P\u002BU/1bvVnXk8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 04:11:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ThothWeb/images/thoth-logo.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\thoth-logo.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -772,13 +784,37 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ThothWeb.p23rkw0z9g.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-r\u002BOLudErgU\u002BJ7ShVtI/13lqADZAoidTAi8mJHLpxWHI="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022r\u002BOLudErgU\u002BJ7ShVtI/13lqADZAoidTAi8mJHLpxWHI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Nov 2025 03:24:58 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022r\u002BOLudErgU\u002BJ7ShVtI/13lqADZAoidTAi8mJHLpxWHI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 03:46:22 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ThothWeb/ThothWeb.p23rkw0z9g.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ThothWeb.p23rkw0z9g.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"p23rkw0z9g"},{"Name":"integrity","Value":"sha256-r\u002BOLudErgU\u002BJ7ShVtI/13lqADZAoidTAi8mJHLpxWHI="},{"Name":"label","Value":"_content/ThothWeb/ThothWeb.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022r\u002BOLudErgU\u002BJ7ShVtI/13lqADZAoidTAi8mJHLpxWHI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Nov 2025 03:24:58 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022r\u002BOLudErgU\u002BJ7ShVtI/13lqADZAoidTAi8mJHLpxWHI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 03:46:22 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ThothWeb/uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"153844"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 04:31:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ThothWeb/uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.vzarhrs6nc.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vzarhrs6nc"},{"Name":"integrity","Value":"sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="},{"Name":"label","Value":"_content/ThothWeb/uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICI\u00D3N 37 equivalencias automaticas entre planes de estudios TUDS.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"153844"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 04:31:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ThothWeb/uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"153844"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 00:27:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ThothWeb/uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.vzarhrs6nc.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vzarhrs6nc"},{"Name":"integrity","Value":"sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="},{"Name":"label","Value":"_content/ThothWeb/uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICI\u00D3N 37 equivalencias automaticas entre planes de estudios TUDS.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"153844"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Nov 2025 00:27:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

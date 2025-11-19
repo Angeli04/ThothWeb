@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThothWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86a81c706a93645b952a9b82553be587c14febc4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19bdcb4e386074219dd690fce762693a6fd81829")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThothWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThothWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

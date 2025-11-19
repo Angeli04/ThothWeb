@@ -54,6 +54,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\thoth-logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\thoth-logo-completo.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ThothWeb</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ThothWeb</BasePath>
+      <RelativePath>images/thoth-logo-completo.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>idik78psvm</Fingerprint>
+      <Integrity>+k4KQlndHc72u+0CQ2nPfpthiTadT06P+U/1bvVnXk8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\thoth-logo-completo.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>
       <SourceId>ThothWeb</SourceId>
@@ -1169,6 +1187,42 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ThothWeb.p23rkw0z9g.bundle.scp.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ThothWeb</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ThothWeb</BasePath>
+      <RelativePath>uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vzarhrs6nc</Fingerprint>
+      <Integrity>a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ThothWeb</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ThothWeb</BasePath>
+      <RelativePath>uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vzarhrs6nc</Fingerprint>
+      <Integrity>a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

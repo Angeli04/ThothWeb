@@ -1,0 +1,34 @@
+@model Thoth.Web.Models.ViewModels.InscripcionViewModel
+
+@{ 
+    ViewData["Title"] = "Inscribir Empleado"; 
+    // 1. Recuperamos la lista
+    var listaEmpleados = ViewData["Empleados"] as IEnumerable<SelectListItem>;
+}
+
+<h2>Inscribir Empleado</h2>
+<h4>Curso: <strong>@Model.CapacitacionTitulo</strong></h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Crear">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+            <input type="hidden" asp-for="CapacitacionId" />
+            <input type="hidden" asp-for="CapacitacionTitulo" />
+
+            <div class="mb-3">
+                <label class="form-label">Seleccionar Empleado</label>
+                
+                <select asp-for="UsuarioIdSeleccionado" asp-items="@listaEmpleados" class="form-select">
+                    <option value="">-- Seleccione --</option>
+                </select>
+                
+            </div>
+
+            <button type="submit" class="btn btn-primary">Inscribir</button>
+            <a asp-controller="Capacitaciones" asp-action="Details" asp-route-id="@Model.CapacitacionId" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>

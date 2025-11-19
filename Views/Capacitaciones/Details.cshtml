@@ -1,0 +1,234 @@
+@model Thoth.Web.Models.Capacitacion
+
+@{
+    ViewData["Title"] = "Detalle de Capacitación";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-dark fw-bold mb-0">@Model.Titulo</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none">Capacitaciones</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Detalle</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="btn-group">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Editar
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold text-dark">Información del Curso</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <small class="text-uppercase text-muted fw-bold">Fecha de Creación</small>
+                            <p class="fs-5">@Model.FechaCreacion.ToString("dd 'de' MMMM, yyyy")</p>
+                        </div>
+                        <div class="col-md-6">
+                            <small class="text-uppercase text-muted fw-bold">Material de Estudio</small>
+                            <div>
+                                @if (!string.IsNullOrEmpty(Model.ContenidoUrl))
+                                {
+                                    <a href="@Model.ContenidoUrl" target="_blank" class="btn btn-outline-primary btn-sm mt-1">
+                                        <i class="bi bi-file-earmark-pdf"></i> Ver Material Adjunto
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-light text-secondary border">Sin material</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <small class="text-uppercase text-muted fw-bold">Descripción</small>
+                        <p class="text-muted">@Model.Descripcion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold text-dark">Configuración de Evaluación</h5>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                    
+                    @if (Model.Evaluacion != null)
+                    {
+                        <div class="mb-3">
+                            <div class="bg-success bg-opacity-10 p-3 rounded-circle d-inline-block mb-2">
+                                <i class="bi bi-check-lg text-success fs-2"></i>
+                            </div>
+                            <h5 class="fw-bold">@Model.Evaluacion.Titulo</h5>
+                            <span class="badge bg-success">Activa</span>
+                        </div>
+                        <p class="small text-muted">Nota mínima de aprobación: <strong>@Model.Evaluacion.NotaMinima</strong></p>
+                        
+                        <a asp-controller="Evaluaciones" asp-action="AgregarPregunta" asp-route-evaluacionId="@Model.Evaluacion.Id" class="btn btn-primary w-100 mt-auto">
+                            <i class="bi bi-plus-circle"></i> Gestionar Preguntas
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="mb-3">
+                            <div class="bg-warning bg-opacity-10 p-3 rounded-circle d-inline-block mb-2">
+                                <i class="bi bi-exclamation-lg text-warning fs-2"></i>
+                            </div>
+                            <h5>Sin Evaluación</h5>
+                            <p class="small text-muted">Este curso es solo de lectura por el momento.</p>
+                        </div>
+                        <a asp-controller="Evaluaciones" asp-action="Crear" asp-route-capacitacionId="@Model.Id" class="btn btn-success w-100 mt-auto">
+                            <i class="bi bi-magic"></i> Crear Evaluación Ahora
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div> @if (Model.Evaluacion != null)
+    {
+        <div class="card shadow-sm border-0 mt-4">
+            <div class="card-header bg-light border-0 py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 fw-bold text-dark">
+                    <i class="bi bi-list-task me-2"></i>Banco de Preguntas (@Model.Evaluacion.Preguntas.Count())
+                </h5>
+                <a asp-controller="Evaluaciones" asp-action="AgregarPregunta" asp-route-evaluacionId="@Model.Evaluacion.Id" class="btn btn-sm btn-outline-primary">
+                    + Nueva Pregunta
+                </a>
+            </div>
+            <div class="card-body p-0">
+                @if (!Model.Evaluacion.Preguntas.Any())
+                {
+                    <div class="text-center p-4">
+                        <p class="text-muted mb-0">No se han cargado preguntas para este examen.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="accordion accordion-flush" id="accordionPreguntas">
+                        @foreach (var pregunta in Model.Evaluacion.Preguntas.Select((val, index) => new { val, index }))
+                        {
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-@pregunta.index">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@pregunta.index">
+                                        <span class="fw-bold me-2 text-primary">#@(pregunta.index + 1)</span> @pregunta.val.Enunciado
+                                    </button>
+                                </h2>
+                                <div id="collapse-@pregunta.index" class="accordion-collapse collapse" data-bs-parent="#accordionPreguntas">
+                                    <div class="accordion-body bg-light">
+                                        <ul class="list-group">
+                                            @foreach (var opcion in pregunta.val.Opciones)
+                                            {
+                                                <li class="list-group-item @(opcion.EsCorrecta ? "list-group-item-success" : "")">
+                                                    @if (opcion.EsCorrecta)
+                                                    {
+                                                        <i class="bi bi-check-circle-fill text-success me-2"></i> <strong>@opcion.TextoOpcion</strong> <span class="badge bg-success float-end">Correcta</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="bi bi-circle text-muted me-2"></i> @opcion.TextoOpcion
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+    <div class="card shadow-sm border-0 mt-4 mb-5">
+        <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-0 fw-bold text-dark">Empleados Inscritos</h5>
+                <small class="text-muted">Total: @(Model.Inscripciones?.Count() ?? 0)</small>
+            </div>
+            <a asp-controller="Inscripciones" asp-action="Crear" asp-route-capacitacionId="@Model.Id" class="btn btn-primary">
+                <i class="bi bi-person-plus"></i> Inscribir Alumno
+            </a>
+        </div>
+        
+        <div class="card-body p-0">
+            @if (Model.Inscripciones != null && Model.Inscripciones.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light text-secondary">
+                            <tr>
+                                <th class="ps-4">Empleado</th>
+                                <th>RUT</th>
+                                <th>Inscripción</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center">Nota</th>
+                                <th class="text-end pe-4">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ins in Model.Inscripciones)
+                            {
+                                <tr>
+                                    <td class="ps-4 fw-bold">@ins.Usuario.Nombre @ins.Usuario.Apellido</td>
+                                    <td class="text-muted small">@ins.Usuario.Rut</td>
+                                    <td>@ins.FechaInscripcion.ToShortDateString()</td>
+                                    <td class="text-center">
+                                        @if (ins.EstadoCapacitacion == "Completado")
+                                        {
+                                            <span class="badge rounded-pill bg-success bg-opacity-10 text-success border border-success">Completado</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge rounded-pill bg-secondary bg-opacity-10 text-secondary border border-secondary">Pendiente</span>
+                                        }
+                                    </td>
+                                    <td class="text-center fw-bold">
+                                        @(ins.CalificacionFinal.HasValue ? ins.CalificacionFinal.Value.ToString("0.0") : "-")
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        <form asp-controller="Inscripciones" asp-action="Eliminar" method="post" onsubmit="return confirm('¿Deseas dar de baja a este empleado del curso?');" class="d-inline">
+                                            <input type="hidden" name="id" value="@ins.Id" />
+                                            <input type="hidden" name="capacitacionId" value="@Model.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" title="Eliminar inscripción">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center p-5">
+                    <div class="mb-3">
+                        <i class="bi bi-people text-muted fs-1"></i>
+                    </div>
+                    <h6 class="text-muted">No hay empleados inscritos en este curso.</h6>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,105 @@
+@model Thoth.Web.Models.ViewModels.CapacitacionEditViewModel
+
+@{
+    ViewData["Title"] = "Editar Capacitación";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-dark fw-bold mb-0">Editar Capacitación</h2>
+            <p class="text-muted small mb-0">Modifica los detalles del curso o actualiza el material adjunto.</p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning bg-opacity-10 border-bottom py-3">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-pencil-square me-2"></i>Datos de la Capacitación
+                    </h5>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+                        
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="ContenidoUrlActual" />
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Titulo" class="form-control" placeholder="Título" />
+                            <label asp-for="Titulo">Título de la Capacitación</label>
+                            <span asp-validation-for="Titulo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Descripción" style="height: 150px"></textarea>
+                            <label asp-for="Descripcion">Descripción y Objetivos</label>
+                            <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                        </div>
+
+                        <hr class="text-muted my-4" />
+
+                        <h6 class="fw-bold text-muted mb-3 text-uppercase small">Gestión de Material Adjunto</h6>
+
+                        <div class="bg-light p-3 rounded border mb-3">
+                            
+                            @if (!string.IsNullOrEmpty(Model.ContenidoUrlActual))
+                            {
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3">
+                                        <i class="bi bi-file-earmark-check-fill text-success fs-2"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold text-dark">Archivo Actual Cargado</h6>
+                                        <a href="@Model.ContenidoUrlActual" target="_blank" class="text-decoration-none small">
+                                            <i class="bi bi-box-arrow-up-right"></i> Ver documento actual
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="alert alert-warning py-2 small mb-3">
+                                    <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                    Si subes un archivo nuevo abajo, <strong>el actual será eliminado y reemplazado.</strong>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-secondary py-2 small mb-3">
+                                    <i class="bi bi-info-circle-fill me-1"></i>
+                                    Actualmente no hay material adjunto.
+                                </div>
+                            }
+
+                            <div class="mb-0">
+                                <label asp-for="ArchivoMaterial" class="form-label fw-bold small">Subir Nuevo Archivo (Opcional)</label>
+                                <input asp-for="ArchivoMaterial" type="file" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx" />
+                                <span asp-validation-for="ArchivoMaterial" class="text-danger small"></span>
+                                <div class="form-text small">Formatos permitidos: PDF, Word, Excel.</div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-action="Index" class="btn btn-light text-muted">Cancelar</a>
+                            <button type="submit" class="btn btn-primary px-4 fw-bold">
+                                <i class="bi bi-check-lg"></i> Guardar Cambios
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

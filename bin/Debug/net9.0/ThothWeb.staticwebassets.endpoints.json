@@ -43,7 +43,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Nov 2025 03:24:58 GMT"
+          "Value": "Wed, 19 Nov 2025 03:46:22 GMT"
         },
         {
           "Name": "Vary",
@@ -92,7 +92,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Nov 2025 03:24:58 GMT"
+          "Value": "Wed, 19 Nov 2025 03:46:22 GMT"
         }
       ],
       "EndpointProperties": [
@@ -141,7 +141,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Nov 2025 03:24:58 GMT"
+          "Value": "Wed, 19 Nov 2025 03:46:22 GMT"
         },
         {
           "Name": "Vary",
@@ -204,7 +204,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Nov 2025 03:24:58 GMT"
+          "Value": "Wed, 19 Nov 2025 03:46:22 GMT"
         },
         {
           "Name": "Vary",
@@ -245,7 +245,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Nov 2025 03:24:58 GMT"
+          "Value": "Wed, 19 Nov 2025 03:46:22 GMT"
         }
       ],
       "EndpointProperties": [
@@ -286,7 +286,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Nov 2025 03:24:58 GMT"
+          "Value": "Wed, 19 Nov 2025 03:46:22 GMT"
         },
         {
           "Name": "Vary",
@@ -893,6 +893,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "images/thoth-logo-completo.idik78psvm.png",
+      "AssetFile": "images/thoth-logo-completo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66670"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+k4KQlndHc72u+0CQ2nPfpthiTadT06P+U/1bvVnXk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Nov 2025 04:11:46 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "idik78psvm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+k4KQlndHc72u+0CQ2nPfpthiTadT06P+U/1bvVnXk8="
+        },
+        {
+          "Name": "label",
+          "Value": "images/thoth-logo-completo.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/thoth-logo-completo.png",
+      "AssetFile": "images/thoth-logo-completo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66670"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+k4KQlndHc72u+0CQ2nPfpthiTadT06P+U/1bvVnXk8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Nov 2025 04:11:46 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+k4KQlndHc72u+0CQ2nPfpthiTadT06P+U/1bvVnXk8="
         }
       ]
     },
@@ -18937,6 +19019,170 @@
         {
           "Name": "label",
           "Value": "lib/jquery/dist/jquery.slim.min.js.gz"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "AssetFile": "uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "153844"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Nov 2025 04:31:13 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.vzarhrs6nc.pdf",
+      "AssetFile": "uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "153844"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Nov 2025 04:31:13 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vzarhrs6nc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/90322beb-7539-44cf-9b30-89f395077735_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "AssetFile": "uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "153844"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Nov 2025 00:27:14 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.vzarhrs6nc.pdf",
+      "AssetFile": "uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "153844"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Nov 2025 00:27:14 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vzarhrs6nc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-a60o7chBcNst9gY8Y7CgJobPtivo3JiCEMn9/Awdovk="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/edb97389-0738-4c76-8d79-fda6f7f0ede2_DISPOSICIÓN 37 equivalencias automaticas entre planes de estudios TUDS.pdf"
         }
       ]
     }

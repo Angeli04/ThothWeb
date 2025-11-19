@@ -1,62 +1,126 @@
 @model IEnumerable<Thoth.Web.Models.Usuario>
+
 @{
     ViewData["Title"] = "Gestión de Usuarios";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container-fluid">
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Usuario</a>
-</p>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-dark fw-bold mb-0">Directorio de Usuarios</h2>
+            <p class="text-muted small mb-0">Administra el acceso y roles del personal.</p>
+        </div>
+        <a asp-action="Create" class="btn btn-primary shadow-sm">
+            <i class="bi bi-person-plus-fill me-2"></i> Nuevo Usuario
+        </a>
+    </div>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Nombre Completo</th>
-            <th>Email</th>
-            <th>Rol</th>
-            <th>Estado</th> <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var usuario in Model)
-        {
-            <tr class="@(usuario.EstaActivo ? "" : "table-secondary text-muted")">
-                
-                <td>@usuario.Nombre @usuario.Apellido</td>
-                <td>@usuario.Email</td>
-                <td>@usuario.Rol.Nombre</td>
-                
-                <td>
-                    @if (usuario.EstaActivo)
-                    {
-                        <span class="badge bg-success">Activo</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">Inactivo</span>
-                    }
-                </td>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light text-secondary">
+                        <tr>
+                            <th class="ps-4">Usuario</th> <th>Rol</th>
+                            <th>RUT / ID</th> <th class="text-center">Estado</th>
+                            <th class="text-end pe-4">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var usuario in Model)
+                        {
+                            <tr class="@(usuario.EstaActivo ? "" : "bg-light opacity-75")">
+                                
+                                <td class="ps-4 py-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex justify-content-center align-items-center fw-bold me-3" 
+                                             style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                            @usuario.Nombre.Substring(0, 1).ToUpper()@usuario.Apellido.Substring(0, 1).ToUpper()
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold text-dark">@usuario.Nombre @usuario.Apellido</h6>
+                                            <small class="text-muted">@usuario.Email</small>
+                                        </div>
+                                    </div>
+                                </td>
 
-                <td>
-                    <a asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-warning">Editar</a> |
-                    
-                    @if (usuario.EstaActivo)
-                    {
-                        <form asp-action="SoftDelete" asp-route-id="@usuario.Id" method="post" style="display:inline;">
-                            @Html.AntiForgeryToken()
-                            <button type="submit" class="btn btn-sm btn-danger">Desactivar</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <form asp-action="Activate" asp-route-id="@usuario.Id" method="post" style="display:inline;">
-                            @Html.AntiForgeryToken()
-                            <button type="submit" class="btn btn-sm btn-success">Activar</button>
-                        </form>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                                <td>
+                                    @if (usuario.Rol.Nombre == "Administrador")
+                                    {
+                                        <span class="badge bg-dark border border-dark text-white">
+                                            <i class="bi bi-shield-lock-fill me-1"></i> @usuario.Rol.Nombre
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-light text-secondary border">
+                                            <i class="bi bi-person-badge me-1"></i> @usuario.Rol.Nombre
+                                        </span>
+                                    }
+                                </td>
+                                
+                                <td class="text-muted small">
+                                    @* Si tienes propiedad RUT úsala, si no, pon un placeholder o elimínalo *@
+                                    @(usuario.GetType().GetProperty("Rut") != null ? usuario.GetType().GetProperty("Rut").GetValue(usuario, null) : "N/A")
+                                </td>
+
+                                <td class="text-center">
+                                    @if (usuario.EstaActivo)
+                                    {
+                                        <span class="badge rounded-pill bg-success bg-opacity-10 text-success border border-success px-3">
+                                            Activo
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge rounded-pill bg-danger bg-opacity-10 text-danger border border-danger px-3">
+                                            Inactivo
+                                        </span>
+                                    }
+                                </td>
+
+                                <td class="text-end pe-4">
+                                    <div class="btn-group">
+                                        <a asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-sm btn-outline-secondary" title="Editar Usuario">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+
+                                        @if (usuario.EstaActivo)
+                                        {
+                                            <form asp-action="SoftDelete" asp-route-id="@usuario.Id" method="post" class="d-inline" 
+                                                  onsubmit="return confirm('¿Estás seguro de desactivar a @usuario.Nombre? No podrá acceder al sistema.');">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="btn btn-sm btn-outline-danger ms-1" title="Desactivar Acceso">
+                                                    <i class="bi bi-person-x-fill"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form asp-action="Activate" asp-route-id="@usuario.Id" method="post" class="d-inline">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="btn btn-sm btn-outline-success ms-1" title="Reactivar Acceso">
+                                                    <i class="bi bi-person-check-fill"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            
+            @if (!Model.Any())
+            {
+                <div class="text-center p-5">
+                    <p class="text-muted">No se encontraron usuarios registrados.</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

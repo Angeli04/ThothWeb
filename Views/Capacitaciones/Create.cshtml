@@ -1,0 +1,103 @@
+@model Thoth.Web.Models.ViewModels.CapacitacionViewModel
+
+@{
+    ViewData["Title"] = "Nueva Capacitación";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-dark fw-bold mb-0">Nueva Capacitación</h2>
+            <p class="text-muted small mb-0">Registra un nuevo curso en el sistema.</p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Cancelar
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold text-primary">
+                        <i class="bi bi-plus-circle me-2"></i>Datos Generales
+                    </h5>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Titulo" class="form-control" placeholder="Ej: Uso de Extintores" />
+                            <label asp-for="Titulo">Título de la Capacitación</label>
+                            <span asp-validation-for="Titulo" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <textarea asp-for="Descripcion" class="form-control" placeholder="Detalles" style="height: 120px"></textarea>
+                            <label asp-for="Descripcion">Descripción y Objetivos</label>
+                            <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                        </div>
+
+                        <div class="bg-light p-3 rounded border mb-4">
+                            <label asp-for="ArchivoMaterial" class="form-label fw-bold text-dark mb-2">
+                                <i class="bi bi-paperclip me-1"></i> Material de Estudio (Opcional)
+                            </label>
+                            <input asp-for="ArchivoMaterial" type="file" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx" />
+                            <span asp-validation-for="ArchivoMaterial" class="text-danger small"></span>
+                            <div class="form-text small mt-2">
+                                Puedes subir guías en PDF, manuales en Word o planillas Excel. 
+                                <br>Si tienes un video de YouTube, agrégalo en la descripción.
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Index" class="btn btn-light text-muted">Cancelar</a>
+                            <button type="submit" class="btn btn-primary px-4 fw-bold">
+                                <i class="bi bi-save me-2"></i> Guardar y Continuar
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-none d-lg-block">
+            <div class="alert alert-info border-0 shadow-sm mb-4">
+                <h5 class="alert-heading fw-bold"><i class="bi bi-info-circle-fill"></i> ¿Cómo funciona?</h5>
+                <p class="small mb-0">
+                    Este es el <strong>Paso 1</strong>. Aquí solo registras la información básica del curso y el material de estudio.
+                </p>
+                <hr>
+                <p class="small mb-0">
+                    En el <strong>Paso 2</strong> (después de guardar), podrás:
+                </p>
+                <ul class="small mt-2 ps-3">
+                    <li>Crear el examen (preguntas y respuestas).</li>
+                    <li>Definir la nota de aprobación.</li>
+                    <li>Inscribir a los empleados.</li>
+                </ul>
+            </div>
+
+            <div class="card border-0 bg-light text-center p-4">
+                <div class="card-body">
+                    <i class="bi bi-lightbulb text-warning fs-1 mb-2"></i>
+                    <h6 class="fw-bold">Consejo</h6>
+                    <p class="small text-muted">
+                        Intenta que los títulos sean cortos y descriptivos para que se vean bien en los reportes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
