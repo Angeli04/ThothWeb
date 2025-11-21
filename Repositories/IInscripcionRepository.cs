@@ -16,5 +16,10 @@ namespace Thoth.Web.Repositories
         Task InscribirUsuario(Inscripcion inscripcion);
         
         Task EliminarInscripcion(int id);
+
+        Task<IEnumerable<Inscripcion>> GetInscripcionesPorUsuario(int usuarioId);
+    
+        Task ActualizarCalificacionAsync(int usuarioId, int capacitacionId, decimal nota, bool aprobado);
     }
+    
 }

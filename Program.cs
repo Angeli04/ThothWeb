@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Thoth.Web.Data;
 using Thoth.Web.Repositories;
@@ -28,20 +31,32 @@ builder.Services.AddScoped<ICapacitacionRepository, CapacitacionRepository>();
 builder.Services.AddScoped<IEvaluacionRepository, EvaluacionRepository>();
 builder.Services.AddScoped<IInscripcionRepository, InscripcionRepository>();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
+builder.Services.AddAuthentication(options => 
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(options => 
+{
+    options.LoginPath = "/Account/Login";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        // 2. Definir la página de Login
-        // Si un usuario NO autenticado intenta entrar a una página [Authorize],
-        // será redirigido aquí:
-        options.LoginPath = "/Account/Login";
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
         
-        // 3. (Opcional) Tiempo de expiración de la cookie
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); 
-        
-        // 4. (Opcional) Permitir que la cookie se refresque
-        options.SlidingExpiration = true; 
-    });
+        // Leemos los valores desde appsettings.json
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 
 var app = builder.Build();
 

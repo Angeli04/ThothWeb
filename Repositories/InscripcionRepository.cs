@@ -51,5 +51,40 @@ namespace Thoth.Web.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<IEnumerable<Inscripcion>> GetInscripcionesPorUsuario(int usuarioId)
+        {
+            return await _context.Inscripciones
+                                 .Include(i => i.Capacitacion)
+                                 .Where(i => i.UsuarioId == usuarioId)
+                                 .ToListAsync();
+        }
+
+        public async Task ActualizarCalificacionAsync(int usuarioId, int capacitacionId, decimal nota, bool aprobado)
+        {
+            var inscripcion = await _context.Inscripciones
+                                             .FirstOrDefaultAsync(i=>i.UsuarioId == usuarioId && i.CapacitacionId == capacitacionId);
+
+            if (inscripcion != null)
+            {
+                inscripcion.CalificacionFinal = nota;
+                inscripcion.EstadoEvaluacion = aprobado ? "Aprobado":"Reprobado";
+
+                if(aprobado)
+                {
+                    inscripcion.EstadoCapacitacion = "Completado";
+                }
+                else
+                {
+                    inscripcion.EstadoCapacitacion = "Pendiente";
+                }
+
+                await _context.SaveChangesAsync();
+
+            }
+        }
+
+
+        
     }
 }

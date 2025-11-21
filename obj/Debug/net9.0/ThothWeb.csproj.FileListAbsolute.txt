@@ -104,3 +104,11 @@ C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\refint\Th
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ThothWeb.pdb
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ThothWeb.genruntimeconfig.cache
 C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\obj\Debug\net9.0\ref\ThothWeb.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ismit\OneDrive\Escritorio\Proyectos\ThothWeb\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
